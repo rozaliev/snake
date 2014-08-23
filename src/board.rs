@@ -209,7 +209,7 @@ impl Board {
         context
             .trans((self.block.x * 32) as f64, (self.block.y*32) as f64)
             .rect(0.0, 0.0, 32.0, 32.0)
-            .rgba(1.0, 1.0, 1.0,1.0)
+            .rgba(0.0, 1.0, 1.0,1.0)
             .draw(gl);
     }
 
