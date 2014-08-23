@@ -187,14 +187,31 @@ impl Board {
     fn update(&mut self) -> bool {
         self.snake.update();
         if self.snake.body[0].x == self.block.x && self.snake.body[0].y == self.block.y {
-            self.block = Block::new_rand(self.width, self.height);
-            self.snake.increase()
+            self.set_rand_block();
+            self.snake.increase();
         }
 
         if self.check_collisions() || self.snake.check_collisions() {
             return false
         }
         return true
+    }
+
+    fn set_rand_block(&mut self) {
+        loop {
+            let rx = rnd_in_range(self.width);
+            let ry = rnd_in_range(self.height);
+
+            for block in self.snake.body.iter() {
+                if block.x == rx && block.y == ry {
+                    continue
+                }
+            }
+
+            self.block.x = rx;
+            self.block.y = ry;
+            return
+        }
     }
 
     fn check_collisions(&mut self) -> bool {
