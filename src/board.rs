@@ -76,22 +76,14 @@ impl Snake {
             }
         }
 
-        self.state = self.next;
 
-        match self.state {
-            Right => {
-                x+=1
-            },
-            Left => {
-                x-=1
-            },
-            Up => {
-                y-=1
-            },
-            Down => {
-                y+=1;
-            }
+        match self.next {
+            Right => x+=1,
+            Left => x-=1,
+            Up => y-=1,
+            Down => y+=1
         }
+
         self.body.insert(0,Block{x:x, y:y});
 
         if self.doIncrease {
@@ -99,6 +91,8 @@ impl Snake {
         } else {
             self.body.pop();
         }
+
+        self.state = self.next;
     }
 
     fn key_press(&mut self, key: keyboard::Key) {
