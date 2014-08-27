@@ -16,6 +16,18 @@ component!(
     ID_Head: Head
 )
 
+component!(
+    ID_Target: Target {
+      t: Option<Entity>
+    }
+)
+
+component!(
+    ID_SnakeDirection: SnakeDirection {
+      direction: Direction
+    }
+)
+
 #[deriving(PartialEq, Show, Clone)]
 pub enum Direction {
     Left,
@@ -30,11 +42,6 @@ impl Default for Direction {
   }
 }
 
-component!(
-    ID_SnakeDirection: SnakeDirection {
-      direction: Direction
-    }
-)
 
 pub struct SnakeMoverProcess;
 

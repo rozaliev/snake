@@ -26,24 +26,31 @@ impl SquareRendererProcess {
         return bulk
     }
 
-    fn render(&mut self, sq: &Square) {
-        let context = &Context::abs(800.0, 800.0);
-        context.rgba(0.0,0.0,0.0,0.0).draw(&mut self.gl);
+    fn render(&mut self, sq: &Square, context: &Context) {
+        let (r,g,b,a) = sq.rgba;
         context
             .trans(sq.x,sq.y)
             .rect(0.0, 0.0, sq.width, sq.height)
-            .rgba(0.0, 1.0, 1.0,1.0)
+            .rgba(r,g,b,a)
             .draw(&mut self.gl);
     }
 }
 
 
 impl BulkEntityProcess for SquareRendererProcess {
-    fn process(&mut self, es: Vec<&Entity>, _: &World, cs:&mut Components){
+    fn process(&mut self, es: Vec<&Entity>, _: &World, cs:&mut Components){}
+
+    fn render(&mut self, es: Vec<&Entity>, _: &World, cs:&mut Components){
+        let context = &Context::abs(800.0, 800.0);
+        context.rgba(0.0,0.0,0.0,0.0).draw(&mut self.gl);
+
         for e in es.iter() {
             match cs.borrow::<Square>(*e) {
                 None => {},
-                Some(c) => self.render(c)
+                Some(c) => {
+                    if c.hidden { continue }
+                    self.render(c,context)
+                }
             }
         }
     }
@@ -54,6 +61,8 @@ component!(
         x: f64,
         y: f64,
         width: f64,
-        height: f64
+        height: f64,
+        rgba: (f32,f32,f32,f32),
+        hidden: bool
     }
 )
