@@ -2,7 +2,7 @@
 
 Rust+Piston
 
-## Be warned! This branch contains very overengineered and uncomplete version of game. It most defently will break and eat your brain.
+## Be warned! This branch contains very overengineered and uncomplete version of the game. It most definitely will break and eat your brain.
 
 ```
 $ cargo build
