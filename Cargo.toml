@@ -20,5 +20,9 @@ git = "https://github.com/PistonDevelopers/rust-graphics.git"
 
 git = "https://github.com/PistonDevelopers/opengl_graphics.git"
 
+[dependencies.ecs]
+
+path = "../ecs-rs"
+
 [[bin]]
 name="snake"
