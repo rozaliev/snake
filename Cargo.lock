@@ -2,7 +2,7 @@
 name = "snake"
 version = "0.0.1"
 dependencies = [
- "ecs 0.2.0",
+ "ecs 0.2.0 (git+https://github.com/rozaliev/ecs-rs.git#f123a51428d1fbc8b621f056a56f612a6b723640)",
  "glfw_game_window 0.0.0 (git+https://github.com/PistonDevelopers/glfw_game_window.git#ee6e0e4afb18e067cad56830f31cb5e7cca6f376)",
  "graphics 0.0.0 (git+https://github.com/PistonDevelopers/rust-graphics.git#54843336944d4a0e332aea6ececb8f1446f72d3d)",
  "opengl_graphics 0.0.0 (git+https://github.com/PistonDevelopers/opengl_graphics.git#8a52a143d12f848900f7e8c2cab93d9e2330f4c4)",
@@ -29,6 +29,7 @@ dependencies = [
 [[package]]
 name = "ecs"
 version = "0.2.0"
+source = "git+https://github.com/rozaliev/ecs-rs.git#f123a51428d1fbc8b621f056a56f612a6b723640"
 dependencies = [
  "lazy_static 0.1.0 (git+https://github.com/Kimundi/lazy-static.rs#bd9aadd4324c0bd9062d81f0ff70f401c40605d7)",
  "uuid 0.0.1 (git+https://github.com/rust-lang/uuid#03033bb0b3205b02add7f9db958efb2981fc51dd)",

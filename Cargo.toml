@@ -22,7 +22,7 @@ git = "https://github.com/PistonDevelopers/opengl_graphics.git"
 
 [dependencies.ecs]
 
-path = "../ecs-rs"
+git = "https://github.com/rozaliev/ecs-rs.git"
 
 [[bin]]
 name="snake"
