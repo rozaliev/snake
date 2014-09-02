@@ -14,6 +14,7 @@ use piston::{
 };
 
 use piston::input;
+use piston::input::keyboard;
 
 
 mod app;
@@ -48,7 +49,7 @@ fn main() {
             Update(_args) =>{
                 app.update(&_args)
             },
-            Input(input::KeyPress{key,..}) => {
+            Input(input::Press(input::Keyboard(key))) => {
                 app.key_press(key);
             },
             _ => {},
